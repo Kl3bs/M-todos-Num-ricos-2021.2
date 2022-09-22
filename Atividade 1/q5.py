@@ -22,7 +22,8 @@ def newton(x0, tol,iterations):
             break
         
     if i < iterations:
-        print("\n\nRoot: %f\nIterations: %d\nf(%f) = %g \n\n" %(x0,i,x0,f(x0)))
+        print("\n\nRoot: %f\nIterations: %d\nf(%lf) = %g \n\n" %(x0,i,x0,f(x0)))
+        return x0
 
             
 

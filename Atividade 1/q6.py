@@ -3,18 +3,17 @@ import numpy as np
 
 
 def f(x):
-    y = x
+    y = x**2
     return y
 
 
-def plotFunction(function, a, b, delta):
+def plotFunction(a, b, delta):
     fig, ax = plt.subplots(figsize=(12, 6))
 
     #x = np.linspace(-10,10,1)
-    x = np.arange(-10,10, delta)
+    x = np.arange(0,10, delta)
     y = f(x)
-    z = np.cos(x)
-
+ 
     # fig = plt.figure()
     # ax = fig.add_subplot(1, 1, 1)
     # ax.spines['left'].set_position('center')
@@ -25,7 +24,7 @@ def plotFunction(function, a, b, delta):
     # ax.yaxis.set_ticks_position('left')
     
 
-    ax.plot(z, color='pink', label='Sine wave', linestyle='dashed')
+    ax.plot(x,y, color='pink', label='Sine wave', linestyle='dashed')
     
     plt.xlim(a, b)
     plt.ylim(a,b)
@@ -33,4 +32,4 @@ def plotFunction(function, a, b, delta):
     plt.show()
 
 
-plotFunction(1,-10,10,0.1)
+plotFunction(0,1,5)
