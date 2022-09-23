@@ -35,11 +35,13 @@ def bisection(a, b, error):
 def newton(x0, tol,iterations):
     x = 0
     i = 0
+    sequence = []
     while abs(f(x0)) > tol:
         x = x0 - f(x0)/d(x0)
         x0 = x
         i = i  + 1
         print(x0)
+        sequence.append(x0)
         
         if (f(x0) == 0): 
             break
@@ -49,8 +51,8 @@ def newton(x0, tol,iterations):
             break
     if i < iterations:
         print("\n\nRoot: %f\nIterations: %d\nf(%lf) = %g \n\n" %(x0,i,x0,f(x0)))
-        return x0
+        return  sequence
   
 newton(0,  -0.5,100)
 
-print(f(1))
+ 
