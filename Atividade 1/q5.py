@@ -1,7 +1,7 @@
 import numpy as np
 
 def f(x):
-    y = x**2 - x - 2
+    y = x**2 + 4*x - 5
     return y
 
 def d(x):
@@ -9,21 +9,7 @@ def d(x):
     return ((f(x + h) - (f(x)))/h)
 
 
-def newton(x0, tol,iterations):
-    x = 0
-    i = 0
-    while abs(f(x0)) > tol:
-        x = x0 - f(x0)/d(x0)
-        x0 = x
-        i = i  + 1
-        
-        if (i >= iterations):
-            print("Could not find any root")
-            break
-        
-    if i < iterations:
-        print("\n\nRoot: %f\nIterations: %d\nf(%lf) = %g \n\n" %(x0,i,x0,f(x0)))
-        return x0
+
 
             
 
@@ -37,7 +23,7 @@ def bisection(a, b, error):
         if f(a)*f(b) > 0:
             print("Is not possible to confirm if there is any root in this interval")
         else:
-            m = (a+b)/2
+            m = round((a+b)/2)
             if f(a) * f(m) < 0:
                 b = m
             else:
@@ -45,7 +31,26 @@ def bisection(a, b, error):
                 
         print(f'x{index+1} = {m}')
         index+=1
-  
-newton(1,  1e-10,100)
+        
+def newton(x0, tol,iterations):
+    x = 0
+    i = 0
+    while abs(f(x0)) > tol:
+        x = x0 - f(x0)/d(x0)
+        x0 = x
+        i = i  + 1
+        print(x0)
+        
+        if (f(x0) == 0): 
+            break
 
-print( (2))
+        if (i >= iterations):
+            print("Could not find any root")
+            break
+    if i < iterations:
+        print("\n\nRoot: %f\nIterations: %d\nf(%lf) = %g \n\n" %(x0,i,x0,f(x0)))
+        return x0
+  
+newton(0,  -0.5,100)
+
+print(f(1))
