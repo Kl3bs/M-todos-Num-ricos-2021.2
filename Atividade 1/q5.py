@@ -1,7 +1,7 @@
 import numpy as np
 
 def f(x):
-    y = x**2 + 4*x - 5
+    y = x**2+7*x+10
     return y
 
 def d(x):
@@ -53,6 +53,6 @@ def newton(x0, tol,iterations):
         print("\n\nRoot: %f\nIterations: %d\nf(%lf) = %g \n\n" %(x0,i,x0,f(x0)))
         return  sequence
   
-newton(0,  -0.5,100)
-
+# newton(5,  -0.5,100)
+print(bisection(0,1,1))
  
