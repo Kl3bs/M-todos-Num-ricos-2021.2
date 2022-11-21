@@ -1,30 +1,12 @@
 from sympy import *
-import matplotlib.pyplot as plt
-import numpy as np
+from sympy.plotting import plot
 
 
-def f(x):
-    y = x
-    return y
-
-
-def plotFunctionAndPoints(a, b, points):
-    points = np.array(points)
-    x = np.linspace(a, b)
-
-    plt.plot(x, f(x), color='red')
-    plt.plot(points, points, 'bo', markersize=3, color='purple')
-
-    plt.xlim(a, b)
-    plt.ylim(a, b)
-
-    plt.show()
-
-
-def solveFunction(expression, a, b, points):
+def solveFunction(expression, a):
     x = symbols('x')
     res = sympify(expression)
     res = res.subs(x, a)
+    plot(2*x*5, line_color='red')
     return res
 
 
