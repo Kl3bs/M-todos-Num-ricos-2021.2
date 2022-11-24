@@ -6,10 +6,11 @@ def solveFunction(expression, a, b, N):
 
     x, y = symbols('x y')
     res = sympify(expression)
-    # res = res.subs(N)
-    plot(sympify(expression), (x, a, b), line_color='red')
+
+    plot(sympify(expression), xlim=(a, b), ylim=(a, b), line_color='red',
+         markers=[{'args': [[1, 2, 3], [1, 2, 3], "o"]}])
 
     return res
 
 
-print(solveFunction("2*x+5", -5, 5, 3))
+print(solveFunction("x**2+2*x+5", -5, 5, 3))
