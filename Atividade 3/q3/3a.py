@@ -8,4 +8,4 @@ def solveFunction(expression, a):
     return res
 
 
-solveFunction("2*x+5", 1)
+print(solveFunction("x*e**x", 2))
