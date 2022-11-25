@@ -27,26 +27,23 @@ def secondDerivative(function, points, h):
     return res
 
 
-def plotFirstDerivative(function, points):
+def plotDerivative(function, points, n):
     x = symbols('x')
-    graph = plot(sympify(function),  diff(sympify(function), x),  legend=True, xlabel='x', ylabel='f(x)',  title="First derivative",
-                 markers=[{'args': [points, "o"]}])
+
+    if n == 1:
+
+        graph = plot(sympify(function),  diff(sympify(function), x),  legend=True, xlabel='x', ylabel='f(x)',  title="First derivative",
+                     markers=[{'args': [points, "o"]}])
+    else:
+        graph = plot(diff(sympify(function), x), diff(sympify(function), x, 2),  legend=True, xlabel='x', ylabel='f(x)',  title="Second derivative",
+                     markers=[{'args': [points, "o"]}])
+
     graph[0].line_color = 'b'
     graph[1].line_color = 'g'
 
-
-def plotSecondDerivative(function, points):
-    x = symbols('x')
-
-    graph = plot(diff(sympify(function), x), diff(sympify(function), x, 2),  legend=True, xlabel='x', ylabel='f(x)',  title="Second derivative",
-                 markers=[{'args': [points, "o"]}])
-    graph[0].line_color = 'b'
-    graph[1].line_color = 'g'
 
 # print(firstDerivative("x**2+3*x+3", [0, 1, 2, 3, 4], 0.1))
 # print(secondDerivative("x**2+3*x+3", [0, 1, 2, 3, 4], 0.1))
-
-
 # * (1/(h**2))
 function2 = "x**3-x"
 p = secondDerivative(function2, [0, 1, 2, 3, 4], 0.1)
