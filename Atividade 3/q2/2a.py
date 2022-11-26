@@ -11,8 +11,12 @@ def plotFunctionAndPoints(a, b, points):
     points = np.array(points)
     x = np.linspace(a, b)
 
+    # Function f(x)
     plt.plot(x, f(x), color='red')
-    plt.plot(points, points, 'bo', markersize=3, color='purple')
+
+    # Array (x,y) points
+    x2, y2 = points.T
+    plt.scatter(x2, y2)
 
     plt.xlim(a, b)
     plt.ylim(a, b)
